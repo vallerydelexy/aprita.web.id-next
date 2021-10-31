@@ -1,10 +1,10 @@
 import Head from 'next/head'
 /* This example requires Tailwind CSS v2.0+ */
 import { PaperClipIcon  } from "@heroicons/react/solid";
-import Skillset from '@components/skillset'
-import TestSwiper from '@components/swiper';
+import Skillset from '@components/Skillset'
+import TestSwiper from '@components/Swiper';
 import MobileMenu from '@components/MobileMenu'
-import Avatar from '@components/avatar'
+import Avatar from '@components/Avatar'
 import HeroPattern from '@components/HeroPattern';
 
 

@@ -1,4 +1,4 @@
-import Badge from "./badge";
+import Badge from "./Badge";
 
 const Skillset = () => (
   <div className="mx-auto bg-white bg-opacity-25 backdrop-filter backdrop-blur-sm md:max-w-lg shadow overflow-hidden sm:rounded-lg">
