@@ -2,12 +2,12 @@ import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 const navigation = [
-    { name: 'Home', href: '#' },
-    { name: 'Skill set', href: '#' },
-    { name: 'Portfolio', href: '#' },
-    { name: 'Company', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'Skill set', href: '/#skillset' },
+    { name: 'Portfolio', href: '/#portfolio' },
+    { name: 'Blog', href: '/blog' },
   ]
-  const logo = "images/logo.svg"
+  const logo = "/images/logo.svg"
 
 const MobileMenu = () => (
 <Popover>

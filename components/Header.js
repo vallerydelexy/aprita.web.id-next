@@ -1,3 +1,9 @@
-export default function Header({ title }) {
-  return <h1 className="title">{title}</h1>
+import MobileMenu from "@components/MobileMenu";
+export default function Header() {
+  return (
+    <div className="relative pt-6 z-50">
+    <MobileMenu />
+    </div>
+
+  )
 }
