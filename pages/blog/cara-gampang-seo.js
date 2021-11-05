@@ -1,0 +1,30 @@
+import Head from 'next/head'
+import Footer from "@components/Footer";
+import Header from "@components/Header";
+import PostPattern from "@components/PostPattern"
+export default function caraGampangSeo() {
+  return (
+<div className="relative pb-16 bg-white overflow-hidden">
+      <Header />
+      <Head>
+        <title>7 API Dummy bagus</title>
+        <link rel="icon" href="/favicon.svg" />
+      </Head>
+      <PostPattern />
+Apr 29 - <p>SEO is one of those topics that intimidate most marketers for the simple fact that the equation changes so frequently. One minute you think you have cracked the code and poof! Google comes out with a new algorithm and you must re-learn and adjust accordingly. Essentially, little about SEO is genuinely clear cut. So how do you optimize your website for search engines reliably when the only constant is change?</p>
+<p><strong>Here is a simple rule of thumb: Think of search engines as if they were just another website visitor.</strong></p>
+<p>Site visitors want fresh, relevant content and the best user experience possible. Search engines want to direct people to fresh, relevant content and good user experiences. Satisfy the needs of one, and by default you satisfy the needs of both. If you optimize your website for good user experiences, then it matters little if new algorithms are introduced. Quality content, content frequency, content organization, and content find-ability and share-ability all matter. Keeping that in mind, here are a few essential things you can do to improve the user experience that will in turn increase crawl frequency and improve search engine rankings.</p>
+<p><strong>Quality Content</strong><br />
+You’ve heard that content is king before, but here’s why that is even more true today. High reader interest and more engagement with content (comments, social sharing, etc.) is the single highest indicator of relevancy for search engines. Especially in today’s saturated market, as companies try to find more ways to lure in site visitors, user engagement is the new norm. Posting quick and dirty content will no longer cut it. Frequency is important, yes, but great content is the key here. It must be fresh, original, high quality, keyword-rich, and it must be valuable to website visitors. The more valuable and regularly updated the content, the more site visitors and search engines will visit. This provides a better website experience which search engines like.</p>
+<p>To have a continuous flow of great content your best bet is to blog, and frequently. Blog posts create a better website experience, help your website get indexed more often, encourage social sharing and conversation, establish expertise and credibility, and when shared afar blog posts create valuable inbound links. All of these factors push your site up in search results.</p>
+<p>Content is the center of all mobile sites as well, but more importantly, mobile visitors are social and are more apt to recommend your company socially if they have a good mobile experience. The more frequent your content, the more mobile visitors will visit and recommend your company using their favorite social media network if you give them one-click options for sharing.</p>
+<p><strong>Sharing Content</strong><br />
+Social media is not only the best way to promote the quality content you have created, it also creates better website engagement for site visitors who want to like, comment on, and share it. The good news is search engines now use social signals to determine how popular your content is by measuring Facebook likes, re-tweets, etc. Keyword-rich content, when promoted via social media in a coordinated keyword-rich campaign, can improve your search engine rankings quickly if you garner enough shares. The key is to make it easy for content contributors and site visitors to share your content across their preferred social channels.</p>
+<p><strong>Finding Content</strong><br />
+Here is a simple principle: if your navigation is confusing to site visitors, it‘s confusing to search engines. Creating easily crawlable navigation is less about categories and more about understanding what your site visitors are looking for and revealing the easiest path to find it. Overwhelming site visitors with tons of pages is confusing and doesn’t help the user experience or search engine rankings. You need to make sure the <em>right</em> pages are being crawled rather than all of your pages. Navigation— whether top or side, mega menus or accordions, breadcrumbs, sitemaps, etc.—should show site visitors where to go and the order of importance to ensure great web experiences, make sites more crawlable, and give a valuable boost to search engine confidence.</p>
+<p><strong>Labeling Content</strong><br />
+As I said before, content is still king, so the most important thing you can do is create impactful content leveraging topic-focused keywords and keyword phrases in your content. But that isn’t the whole story. Using keywords in links, human readable URLs, navigation, title tags, image and video tags and descriptions, and so on is just as essential to the user experience. The key is coordination. Your keywords must work in concert to create the best user experience. Properly optimizing your content for people with disabilities also improves search optimization. Labeling images and videos with alt-text for example allows visually-impaired people using screen readers to “read” your website. Search engine crawlers read websites in the same way, so accessibility improves search results.</p>
+<p>I could go on forever about this topic, but I’ll stop here. If you take one thing away from this let it be that if you create compelling web experiences for site visitors, you are well on your way to having an SEO optimized website.&nbsp;</p>
+<p>For more information on CommonSpot’s suite of SEO tools, click here.</p>
+<Footer /></div>  );
+}
