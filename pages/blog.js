@@ -5,30 +5,38 @@ import HeroPattern from '@components/HeroPattern';
 
 HeroPattern
 const posts = [
-    {
-      id: 1,
-      url: 'https://manualsrepo.com/brands/linux/commands',
-      title: '1300+ Linux commands manuals',
-      tags: ['linux', 'ubuntu', 'webdev', 'programming'],
-      date: '1 Nov 2021',
-      preview: 'List command linux lumayan lengkap beserta cara pakeknya',
-    },
-    {
-        id: 2,
-        url: '/blog/7-api-dummy-bagus',
-        title: '7 API dummy bagus buat placeholder',
-        tags: ['javascript', 'beginners', 'webdev', 'codenewbie'],
-        date: '1 Nov 2021',
-        preview: 'API adalah singkatan dari Application Programming Interface, yang merupakan perantara perangkat lunak yang memungkinkan dua aplikasi untuk berbicara satu sama lain!',
-      },
-      {
-        id: 3,
-        url: '/blog/programmers-joke',
-        title: 'Programmers joke',
-        tags: ['jokes', 'programmers'],
-        date: '2 Nov 2021',
-        preview: 'no place like 127.0.0.1',
-      }
+  {
+    id: 4,
+    url: '/blog/cara-gampang-seo',
+    title: 'Cara gampang SEO',
+    tags: ['seo', 'marketing'],
+    date: '5 Nov 2021',
+    preview: 'Konten adalah raja, iya 100% betul. tapi konten yang kayak gimana dan gimana distribusinya',
+  },
+  {
+    id: 3,
+    url: '/blog/programmers-joke',
+    title: 'Programmers joke',
+    tags: ['jokes', 'programmers'],
+    date: '2 Nov 2021',
+    preview: 'no place like 127.0.0.1',
+  },
+  {
+    id: 2,
+    url: '/blog/7-api-dummy-bagus',
+    title: '7 API dummy bagus buat placeholder',
+    tags: ['javascript', 'beginners', 'webdev', 'codenewbie'],
+    date: '1 Nov 2021',
+    preview: 'API adalah singkatan dari Application Programming Interface, yang merupakan perantara perangkat lunak yang memungkinkan dua aplikasi untuk berbicara satu sama lain!',
+  },
+  {
+    id: 1,
+    url: 'https://manualsrepo.com/brands/linux/commands',
+    title: '1300+ Linux commands manuals',
+    tags: ['linux', 'ubuntu', 'webdev', 'programming'],
+    date: '1 Nov 2021',
+    preview: 'List command linux lumayan lengkap beserta cara pakeknya',
+  }  
   ]
   
 
