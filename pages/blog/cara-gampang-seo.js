@@ -105,25 +105,6 @@ export default function caraGampangSeo() {
 
         <section className="py-4">
           <p>
-            <strong>Finding Content</strong>
-            <br />
-            Here is a simple principle: if your navigation is confusing to site
-            visitors, it‘s confusing to search engines. Creating easily
-            crawlable navigation is less about categories and more about
-            understanding what your site visitors are looking for and revealing
-            the easiest path to find it. Overwhelming site visitors with tons of
-            pages is confusing and doesn’t help the user experience or search
-            engine rankings. You need to make sure the <em>right</em> pages are
-            being crawled rather than all of your pages. Navigation— whether top
-            or side, mega menus or accordions, breadcrumbs, sitemaps,
-            etc.—should show site visitors where to go and the order of
-            importance to ensure great web experiences, make sites more
-            crawlable, and give a valuable boost to search engine confidence.
-          </p>
-        </section>
-
-        <section className="py-4">
-          <p>
             <strong>Menemukan Konten</strong>
             <br />
             Berikut adalah prinsip sederhana: jika navigasi Anda membingungkan
