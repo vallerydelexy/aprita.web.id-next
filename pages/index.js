@@ -6,6 +6,7 @@ import TestSwiper from "@components/Swiper";
 import Avatar from "@components/Avatar";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
+import Stat from "@components/Stat";
 
 export default function Home() {
   return (

@@ -1,7 +1,3 @@
-import styles from './Footer.module.css'
-import { MenuIcon, NewspaperIcon, PhoneIcon, SupportIcon, XIcon } from '@heroicons/react/outline'
-
-
 const footerNavigation = {
   social: [
     {
@@ -64,6 +60,16 @@ const footerNavigation = {
           />
         </svg>
       ),
+    },
+    {
+      name: 'LinkedIn',
+      href: 'https://github.com/rizkiaprita/',
+      icon: (props) => (
+        <svg fill="currentColor" stroke="currentColor" viewBox="0 0 24 24" {...props}>
+          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+        </svg>
+      ),
     }
   ],
 }
@@ -72,18 +78,12 @@ const footerNavigation = {
 export default function Footer() {
   return (
     <>
-      <footer className={styles.footer} aria-labelledby="footerHeading">
-        
-          <h2 id="footerHeading" className="sr-only">
-          Footer
-        </h2>
+      <footer className="bg-gray-800" aria-labelledby="footerHeading">
         <div className="w-full mx-auto py-12 px-4 sm:max-w-7xl sm:px-6 lg:py-16 lg:px-8">
-          
-          <div className="mt-12 border-t border-blue-gray-200 pt-8">
           <div className="space-y-8 xl:col-span-1">
               <img
-                className="h-10 mx-auto m-4"
-                src="/images/logo.svg"
+                className="h-10 mx-auto m-4 "
+                src="/images/logo-inverted.svg"
                 alt="Company name"
               />
             </div>
@@ -94,17 +94,18 @@ export default function Footer() {
               <div className="inline-flex mx-auto space-x-6">
                 
               {footerNavigation.social.map((item) => (
-                  <a key={item.name} href={item.href} className="text-blue-gray-400 hover:text-blue-gray-500">
+                  <a key={item.name} href={item.href} className="fill-current text-gray-200 text-blue-gray-400 hover:text-blue-gray-500">
                     <span className="sr-only">{item.name}</span>
-                    <item.icon className="h-6 w-6" aria-hidden="true" />
+                    <item.icon className="h-7 w-7" aria-hidden="true" />
                   </a>
                 ))}
               </div>
                 
               </div>
-          </div>
         </div>
+        
       </footer>
+      
     </>
   )
 }

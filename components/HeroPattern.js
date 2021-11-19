@@ -1,6 +1,6 @@
 import React from 'react'
 const HeroPattern = () => (
-<div>
+<div className="">
 <svg
         className="absolute right-full transform translate-y-1/4 translate-x-1/4 lg:translate-x-1/2"
         width={404}
