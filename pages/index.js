@@ -39,7 +39,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <portfolio id="portfolio">
+      <div id="portfolio">
         <div className="bg-white shadow overflow-hidden rounded-md px-6 my-4 py-4">
           <h1 className="pt-4 pb-2">
             <span className="block text-base text-3xl text-center text-indigo-600 font-semibold tracking-wide">
@@ -100,7 +100,7 @@ export default function Home() {
           </h1>
           <TestSwiper srcset={["images/kacang-bakar.jpg"]} />
         </div>
-      </portfolio>
+      </div>
 
       <div className="mx-auto max-w-md py-4 sm:py-5">
         <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">

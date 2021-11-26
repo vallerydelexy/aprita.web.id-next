@@ -1,34 +1,9 @@
 const footerNavigation = {
   social: [
     {
-      name: 'Whatsapp',
-      href: 'https://wa.me/6281276763536',
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 64 64" {...props}>
-  <path data-name="layer1"
-  d="M30.19.031a31.753 31.753 0 0 0-26.735 46.12L.085 62.509A1.235 1.235 0 0 0 1.58 63.96l16.029-3.8A31.744 31.744 0 1 0 30.19.031zM49.316 49.31A24.871 24.871 0 0 1 20.68 54l-2.232-1.112-9.828 2.326 2.069-10.042-1.1-2.154a24.874 24.874 0 0 1 4.578-28.857A24.854 24.854 0 0 1 49.316 49.31zm0 0"
-  fill="currentColor"></path>
-  <path data-name="layer1" d="M47.147 38.619L41 36.854a2.292 2.292 0 0 0-2.267.6l-1.5 1.531a2.239 2.239 0 0 1-2.435.514C31.883 38.32 25.765 32.88 24.2 30.16a2.239 2.239 0 0 1 .177-2.483l1.312-1.7a2.292 2.292 0 0 0 .283-2.328L23.388 17.8a2.293 2.293 0 0 0-3.58-.82c-1.716 1.451-3.752 3.657-4 6.1-.436 4.308 1.411 9.738 8.4 16.258 8.071 7.534 14.534 8.528 18.743 7.509 2.387-.578 4.294-2.9 5.5-4.793a2.293 2.293 0 0 0-1.3-3.436z"
-  fill="currentColor"></path>
-</svg>
-      ),
-    },
-    {
-      name: 'Facebook',
-      href: 'https://facebook.com/ValleryDeLexy/',
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path
-            fillRule="evenodd"
-            d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
-    {
-      name: 'Instagram',
-      href: 'https://www.instagram.com/rizkiaprita/',
+      name: "Instagram",
+      href: "https://www.instagram.com/rizkiaprita/",
+      category: "social",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -40,17 +15,9 @@ const footerNavigation = {
       ),
     },
     {
-      name: 'Twitter',
-      href: 'https://twitter.com/rizkiaprita',
-      icon: (props) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-        </svg>
-      ),
-    },
-    {
-      name: 'GitHub',
-      href: 'https://github.com/rizkiaprita/',
+      name: "GitHub",
+      href: "https://github.com/rizkiaprita/",
+      category: "social",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -62,50 +29,111 @@ const footerNavigation = {
       ),
     },
     {
-      name: 'LinkedIn',
-      href: 'https://github.com/rizkiaprita/',
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/in/rizkiaprita/",
+      category: "social",
       icon: (props) => (
-        <svg fill="currentColor" stroke="currentColor" viewBox="0 0 24 24" {...props}>
-          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+        <svg
+          fill="currentColor"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          {...props}
+        >
+          <path
+            stroke="none"
+            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+          ></path>
           <circle cx="4" cy="4" r="2" stroke="none"></circle>
         </svg>
       ),
-    }
+    },
   ],
-}
-
+  contact: [
+    {
+      name: "Whatsapp",
+      href: "https://wa.me/6281276763536",
+      handler: "+62 812 7676 3536",
+      text: "Hubungi via whatsapp",
+      category: "contact",
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 64 64" {...props}>
+          <path
+            data-name="layer1"
+            d="M30.19.031a31.753 31.753 0 0 0-26.735 46.12L.085 62.509A1.235 1.235 0 0 0 1.58 63.96l16.029-3.8A31.744 31.744 0 1 0 30.19.031zM49.316 49.31A24.871 24.871 0 0 1 20.68 54l-2.232-1.112-9.828 2.326 2.069-10.042-1.1-2.154a24.874 24.874 0 0 1 4.578-28.857A24.854 24.854 0 0 1 49.316 49.31zm0 0"
+            fill="currentColor"
+          ></path>
+          <path
+            data-name="layer1"
+            d="M47.147 38.619L41 36.854a2.292 2.292 0 0 0-2.267.6l-1.5 1.531a2.239 2.239 0 0 1-2.435.514C31.883 38.32 25.765 32.88 24.2 30.16a2.239 2.239 0 0 1 .177-2.483l1.312-1.7a2.292 2.292 0 0 0 .283-2.328L23.388 17.8a2.293 2.293 0 0 0-3.58-.82c-1.716 1.451-3.752 3.657-4 6.1-.436 4.308 1.411 9.738 8.4 16.258 8.071 7.534 14.534 8.528 18.743 7.509 2.387-.578 4.294-2.9 5.5-4.793a2.293 2.293 0 0 0-1.3-3.436z"
+            fill="currentColor"
+          ></path>
+        </svg>
+      ),
+    },
+    {
+      name: "Telegram",
+      href: "https://t.me/rizkiaprita",
+      handler: "@rizkiaprita",
+      text: "Chat via telegram",
+      category: "contact",
+      icon: (props) => (
+        <svg
+          fill="currentColor" viewBox="0 0 24 24" {...props} >
+          <path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42l10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001l-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15l4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z" />
+        </svg>
+      ),
+    },
+  ],
+};
 
 export default function Footer() {
   return (
     <>
-      <footer className="bg-gray-800" aria-labelledby="footerHeading">
-        <div className="w-full mx-auto py-12 px-4 sm:max-w-7xl sm:px-6 lg:py-16 lg:px-8">
-          <div className="space-y-8 xl:col-span-1">
-              <img
-                className="h-10 mx-auto m-4 "
-                src="/images/logo-inverted.svg"
-                alt="Company name"
-              />
-            </div>
-            <p className="text-base text-blue-gray-400 text-center">
-              &copy; 2021 Rizki Aprita
-            </p>
-            <div className="flex mt-4">
-              <div className="inline-flex mx-auto space-x-6">
-                
-              {footerNavigation.social.map((item) => (
-                  <a key={item.name} href={item.href} className="fill-current text-gray-200 text-blue-gray-400 hover:text-blue-gray-500">
-                    <span className="sr-only">{item.name}</span>
-                    <item.icon className="h-7 w-7" aria-hidden="true" />
+      <footer
+        className="bg-gray-800 relative px-4 py-12 "
+        aria-labelledby="footerHeading"
+      >
+        <div className="z-50 max-w-7xl mx-auto px-4 sm:px-6">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-200 sm:text-3xl">
+            Contact
+          </h2>
+              <div className="md:flex gap-y-4 gap-x-4 text-base text-gray-500">
+                {footerNavigation.contact.map((item) => (
+                  <a key={item.name} href={item.href}>
+                    <div className="flex gap-x-2 my-4">
+                      <item.icon
+                        className="my-auto h-8 w-8 flex-col text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="flex-col">
+                        <p className="text-gray-300">{item.handler}</p>
+                        <p className="mt-1">{item.text}</p>
+                      </div>
+                    </div>
                   </a>
                 ))}
               </div>
-                
-              </div>
         </div>
-        
+
+        <div className="flex pb-2 mt-8 border-b border-gray-700 flex md:items-center justify-between">
+          <p className="text-base text-gray-400 md:mt-0">
+              Rizki Aprita
+            </p>
+            <div className="flex space-x-3">
+            {footerNavigation.social.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-gray-400 hover:text-gray-300"
+              >
+                <item.icon className="h-6 w-6" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </div>
+        </div>
       </footer>
-      
     </>
-  )
+  );
 }

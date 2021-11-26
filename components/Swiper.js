@@ -19,8 +19,8 @@ const TestSwiper = (props) => (
         pagination={{
           "clickable": true
         }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('onSlideChange')}
+        onSwiper={(swiper) => console.log('onSwiper')}
         breakpoints={{
           640: {
             slidesPerView: "1"

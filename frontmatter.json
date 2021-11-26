@@ -1,0 +1,15 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "next",
+  "frontMatter.content.publicFolder": "public",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "posts",
+      "path": "d:/Github/aprita.web.id/pages/blog/posts"
+    },
+    {
+      "title": "posts",
+      "path": "d:/Github/aprita.web.id/posts"
+    }
+  ]
+}
