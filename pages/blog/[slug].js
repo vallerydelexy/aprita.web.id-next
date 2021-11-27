@@ -24,7 +24,7 @@ const PostPage = ({
   mdxSource,
 }) => {
   return (
-    <div className="relative bg-white overflow-hidden max-w-7xl">
+    <div className="bg-white overflow-hidden  ">
       <Header tagline={"Blog"} />
       <Head>
         <title>{title}</title>
