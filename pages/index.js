@@ -7,6 +7,7 @@ import Avatar from "@components/Avatar";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Stat from "@components/Stat";
+import Terminal from "@components/Terminal";
 
 export default function Home() {
   return (
@@ -30,10 +31,7 @@ export default function Home() {
               Visual Designer / Web Developer
             </span>
           </h2>
-          <p className="text-center mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-            Hai saya Rizki, Saya mendesain hal-hal sederhana yang mudah dipahami
-            dan digunakan
-          </p>
+          <Terminal text={"saya Rizki, Saya mendesain hal-hal sederhana yang mudah dipahami dan digunakan"} />
           <div id="skillset" className="pt-6 text-left">
             <Skillset />
           </div>
