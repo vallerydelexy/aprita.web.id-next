@@ -3,7 +3,6 @@ import Footer from "@components/Footer";
 import Header from "@components/Header";
 import HeroPattern from '@components/HeroPattern';
 
-HeroPattern
 const posts = [
     {
       id: 1,
