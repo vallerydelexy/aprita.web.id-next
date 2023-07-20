@@ -1,6 +1,6 @@
 {
-  "name": "next-netlify-starter",
-  "version": "0.5.0",
+  "name": "aprita.web.id",
+  "version": "1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,6 +10,9 @@
     "export": "next export"
   },
   "dependencies": {
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "react-lottie": "^1.2.3",
     "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.5",
     "@mdx-js/loader": "^1.6.22",
