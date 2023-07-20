@@ -5,11 +5,15 @@
   "frontMatter.content.pageFolders": [
     {
       "title": "posts",
-      "path": "d:/Github/aprita.web.id/pages/blog/posts"
+      "path": "D:/Documents/Projects/aprita.web.id/aprita.web.id-next/posts"
     },
     {
       "title": "posts",
-      "path": "d:/Github/aprita.web.id/posts"
+      "path": "[[workspace]]/posts"
+    },
+    {
+      "title": "posts",
+      "path": "[[workspace]]/public/posts"
     }
   ]
 }
