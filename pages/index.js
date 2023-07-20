@@ -2,12 +2,16 @@ import Head from "next/head";
 /* This example requires Tailwind CSS v2.0+ */
 import { PaperClipIcon } from "@heroicons/react/solid";
 import Skillset from "@components/Skillset";
-import TestSwiper from "@components/Swiper";
-import Avatar from "@components/Avatar";
+// import TestSwiper from "@components/swiper";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import Avatar from "@components/avatar";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
-import Stat from "@components/Stat";
+// import Stat from "@components/Stat";
 import Terminal from "@components/Terminal";
+import GeometricLottie from "@components/GeometricLottie";
+import { LogoImages, PrintImages, WebImages } from "@utils/SliderData";
+
 
 export default function Home() {
   return (
@@ -19,9 +23,11 @@ export default function Home() {
       <Header />
       <main className="md:mt-16 mx-auto max-w-7xl px-4">
         <div className="">
+          
           <div className="text-center">
             <Avatar />
           </div>
+          
 
           <h1 className="text-center text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             <span className="block text-gray-900 xl:inline">Rizki Aprita</span>{" "}
@@ -31,7 +37,13 @@ export default function Home() {
               Visual Designer / Web Developer
             </span>
           </h2>
-          <Terminal text={"saya Rizki, Saya mendesain hal-hal sederhana yang mudah dipahami dan digunakan"} />
+          {/* <Stat /> */}
+          <Terminal
+            text={
+              "saya Rizki, Saya mendesain hal-hal sederhana yang mudah dipahami dan digunakan"
+            }
+          />
+          <GeometricLottie />
           <div id="skillset" className="pt-6 text-left">
             <Skillset />
           </div>
@@ -44,16 +56,19 @@ export default function Home() {
               Websites & UI/UX
             </span>
           </h1>
-          <TestSwiper
-            srcset={[
-              "images/versus.png",
-              "images/dsc-web.jpg",
-              "images/polorio-web.jpg",
-              "images/cl.jpg",
-              "images/get-indonesia-app.jpg",
-              "images/get-app.jpg",
-            ]}
-          />
+          <Splide aria-label="Websites & UI/UX" options={{
+              perPage: 3,
+              gap: "1em",
+            }}
+            className="w-full, mx-auto">
+            {WebImages.map((image, i) => {
+              return (
+                <SplideSlide key={i}>
+                  <img src={image} className="shadow-lg rounded mx-auto" />
+                </SplideSlide>
+              );
+            })}
+          </Splide>
         </div>
 
         <div className="bg-white shadow overflow-hidden rounded-md px-6 my-4 py-4">
@@ -62,15 +77,19 @@ export default function Home() {
               Brand Identity
             </span>
           </h1>
-          <TestSwiper
-            srcset={[
-              "images/get-indonesia.jpg",
-              "images/get-jaket.jpeg",
-              "images/alwan-zahira.png",
-              "images/polorio.png",
-              "images/iotanesia-ragnarok.png",
-            ]}
-          />
+          <Splide aria-label="Websites & UI/UX" options={{
+              perPage: 3,
+              gap: "1em",
+            }}
+            className="w-full, max-w-screen-lg mx-auto">
+            {LogoImages.map((image, i) => {
+              return (
+                <SplideSlide key={i}>
+                  <img src={image} className="shadow-lg rounded mx-auto" />
+                </SplideSlide>
+              );
+            })}
+          </Splide>
         </div>
 
         <div className="bg-white shadow overflow-hidden rounded-md px-6 my-4 py-4">
@@ -79,28 +98,23 @@ export default function Home() {
               Print & Digital advert
             </span>
           </h1>
-          <TestSwiper
-            srcset={[
-              "images/dsc-ig-1.jpg",
-              "images/dsc-brosur-asus.jpg",
-              "images/brosur-alwan-zahira.jpg",
-              "images/brosur-les.jpg",
-              "images/dsc-brosur-hp.jpg",
-            ]}
-          />
-        </div>
-
-        <div className="bg-white shadow overflow-hidden rounded-md px-6 my-4 py-4">
-          <h1 className="pt-4 pb-2">
-            <span className="block text-base text-3xl text-center text-indigo-600 font-semibold tracking-wide">
-              Mockups & Illustration
-            </span>
-          </h1>
-          <TestSwiper srcset={["images/kacang-bakar.jpg"]} />
+          <Splide aria-label="Websites & UI/UX" options={{
+              perPage: 3,
+              gap: "1em",
+            }}
+            className="w-full, max-w-screen-lg mx-auto">
+            {PrintImages.map((image, i) => {
+              return (
+                <SplideSlide key={i}>
+                  <img src={image} className="shadow-lg rounded mx-auto" />
+                </SplideSlide>
+              );
+            })}
+          </Splide>
         </div>
       </div>
 
-      <div className="mx-auto max-w-md py-4 sm:py-5">
+      {/* <div className="mx-auto max-w-md py-4 sm:py-5">
         <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
           <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
             <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
@@ -124,10 +138,9 @@ export default function Home() {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
 
       <Footer />
-
     </div>
   );
 }

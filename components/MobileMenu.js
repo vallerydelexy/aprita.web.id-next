@@ -19,10 +19,10 @@ const MobileMenu = ({asd}) => (
           >
             <div className="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
               <div className="flex items-center justify-between w-full md:w-auto">
-                <Link href="/" passHref>
+                <Link href="/" passHref legacyBehavior>
                   <img className="h-8 w-auto sm:h-10" src={logo} alt="Rizki Aprita" />
                   </Link>
-                  <Link href="/" passHref>
+                  <Link href="/" passHref legacyBehavior>
                   <span className="md:hidden">{asd}</span>
                   </Link>
                 <div className="-mr-2 flex items-center md:hidden">
@@ -36,7 +36,7 @@ const MobileMenu = ({asd}) => (
             </div>
             <div className="hidden md:flex md:space-x-10">
               {navigation.map((item) => (
-                <Link key={item.name} href={item.href} passHref>
+                <Link key={item.name} href={item.href} passHref legacyBehavior>
                   <span role="button" className="font-medium text-gray-500 hover:text-gray-900">
                     {item.name}
                   </span>
@@ -47,7 +47,7 @@ const MobileMenu = ({asd}) => (
               <span className="inline-flex rounded-md shadow">
                 <a
                   href="https://wa.me/6281276763536"
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-indigo-600 backdrop-filter backdrop-blur-sm bg-opacity-25 bg-white hover:bg-gray-50"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-indigo-600 backdrop-filter backdrop-blur-sm bg-white hover:bg-gray-50"
                 >
                   Hubungi
                 </a>
@@ -85,7 +85,7 @@ const MobileMenu = ({asd}) => (
               </div>
               <div className="px-2 pt-2 pb-3">
                 {navigation.map((item) => (
-                  <Link key={item.name} href={item.href} passHref>
+                  <Link key={item.name} href={item.href} passHref legacyBehavior>
                     <span role="button" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
                       {item.name}
                     </span>
@@ -94,7 +94,7 @@ const MobileMenu = ({asd}) => (
               </div>
               <a
                 href="https://wa.me/6281276763536"
-                className="backdrop-filter backdrop-blur-sm bg-opacity-25 block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
+                className="backdrop-filter backdrop-blur-sm  block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
               >
                 Hubungi
               </a>

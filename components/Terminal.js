@@ -19,14 +19,14 @@ export default function terminal(props) {
                 <div className="h-3 w-3 bg-red-500 rounded-full"></div>
                 <div className="ml-2 h-3 w-3 bg-orange-300 rounded-full"></div>
                 <div className="ml-2 h-3 w-3 bg-green-500 rounded-full"></div>
-                <div className="ml-2 text-xs text-inherit pl-4"><span className='px-auto'>kirim pesan dari sini bisa lhoo</span></div>
+                <div className="ml-2 text-xs text-inherit pl-4"><span className='px-auto'>Whatsapp</span></div>
             </div>
             <div className="mt-4 flex">
                 <div className="flex-1 typing items-center pl-2">
-                    <span className="text-green-400">Hello:~ </span> {props.text}
+                    <span className="text-green-400"></span> {props.text}
                     <br />
                     <div className="flex">
-                        <span className="whitespace-no-wrap text-green-400">Hello:~ </span>
+                        <span className="whitespace-no-wrap text-green-400">Kirimkan pesan:  </span>
                         <input id="terminalInput" onKeyPress={sendText} className="pl-2 bg-inherit text-inherit outline-none flex-auto" type="text" />
                     </div>
                 </div>
