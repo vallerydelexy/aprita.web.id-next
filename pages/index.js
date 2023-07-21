@@ -4,7 +4,7 @@ import { PaperClipIcon } from "@heroicons/react/solid";
 import Skillset from "@components/Skillset";
 // import TestSwiper from "@components/swiper";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import Avatar from "@components/avatar"
+import Avatar from "@components/Avatar";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
 // import Stat from "@components/Stat";
