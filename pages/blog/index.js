@@ -89,7 +89,6 @@ export const getStaticProps = async () => {
     const { data: frontMatter } = matter(markdownWithMeta);
 
     return {
-      id: frontMatter.id,
       slug: filename.split(".")[0],
       frontMatter,
     };
