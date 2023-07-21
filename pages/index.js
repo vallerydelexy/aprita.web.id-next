@@ -10,10 +10,19 @@ import Header from "@components/Header";
 // import Stat from "@components/Stat";
 import Terminal from "@components/Terminal";
 import GeometricLottie from "@components/GeometricLottie";
-import { LogoImages, PrintImages, WebImages } from "@utils/SliderData";
-
+import {
+  LogoImages,
+  PrintImages,
+  WebImages,
+  webProjects,
+} from "@utils/SliderData";
+import PortofolioCard from "@components/PortofolioCard";
+import useModalStore from "@utils/store/modal.store";
+import CircleLottie from "@components/CircleLottie";
 
 export default function Home() {
+  const { show, data } = useModalStore((state) => state);
+  console.log(show);
   return (
     <div className="relative bg-gray-50 overflow-hidden">
       <Head>
@@ -21,16 +30,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <Header />
+
       <main className="md:mt-16 mx-auto max-w-7xl px-4">
         <div className="">
-          
           <div className="text-center">
             <Avatar />
           </div>
-          
 
           <h1 className="text-center text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block text-gray-900 xl:inline">Rizki Aprita</span>{" "}
+            <span className="block text-gray-900 xl:inline">Rizki Aprita</span>
           </h1>
           <h2 className="text-center text-1xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
             <span className="block text-indigo-600 xl:inline">
@@ -49,18 +57,52 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <div id="portfolio">
+      
+      <div className="px-6 my-4 py-4">
+        <h1 className="pb-4">
+          <span className="block text-lg text-center text-gray-900 font-semibold tracking-wide">
+            Websites & App Project
+          </span>
+        </h1>
+
+        <div className="">
+        <CircleLottie />
+          <Splide
+            aria-label="Websites & UI/UX"
+            options={{
+              perPage: 1,
+              padding: "2rem",
+              gap: "1em",
+              arrows: false,
+            }}
+            className="max-w-screen-sm mx-auto outline outline-2 outline-indigo-600 py-4 rounded-lg bg-white shadow-lg"
+          >
+            {webProjects.map((project, index) => {
+              return (
+                <SplideSlide key={index}>
+                  <PortofolioCard logo={project.logo} image={project.image} domain={project.domain} title={project.title} description={project.description} stacks={project.stacks} year={project.year} />
+                </SplideSlide>
+              );
+            })}
+          </Splide>
+        </div>
+      </div>
+
+      {/* <div id="portfolio">
         <div className="bg-white shadow overflow-hidden rounded-md px-6 my-4 py-4">
           <h1 className="pt-4 pb-2">
             <span className="block text-base text-3xl text-center text-indigo-600 font-semibold tracking-wide">
-              Websites & UI/UX
+              Websites & App
             </span>
           </h1>
-          <Splide aria-label="Websites & UI/UX" options={{
+          <Splide
+            aria-label="Websites & UI/UX"
+            options={{
               perPage: 3,
               gap: "1em",
             }}
-            className="w-full, mx-auto">
+            className="w-full, mx-auto"
+          >
             {WebImages.map((image, i) => {
               return (
                 <SplideSlide key={i}>
@@ -77,11 +119,14 @@ export default function Home() {
               Brand Identity
             </span>
           </h1>
-          <Splide aria-label="Websites & UI/UX" options={{
+          <Splide
+            aria-label="Websites & UI/UX"
+            options={{
               perPage: 3,
               gap: "1em",
             }}
-            className="w-full, max-w-screen-lg mx-auto">
+            className="w-full, max-w-screen-lg mx-auto"
+          >
             {LogoImages.map((image, i) => {
               return (
                 <SplideSlide key={i}>
@@ -98,11 +143,14 @@ export default function Home() {
               Print & Digital advert
             </span>
           </h1>
-          <Splide aria-label="Websites & UI/UX" options={{
+          <Splide
+            aria-label="Websites & UI/UX"
+            options={{
               perPage: 3,
               gap: "1em",
             }}
-            className="w-full, max-w-screen-lg mx-auto">
+            className="w-full, max-w-screen-lg mx-auto"
+          >
             {PrintImages.map((image, i) => {
               return (
                 <SplideSlide key={i}>
@@ -112,7 +160,7 @@ export default function Home() {
             })}
           </Splide>
         </div>
-      </div>
+      </div> */}
 
       {/* <div className="mx-auto max-w-md py-4 sm:py-5">
         <div className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">

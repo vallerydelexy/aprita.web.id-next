@@ -1,17 +1,15 @@
 import Head from "next/head";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Link from "next/link";
+import axios from "axios";
 
 const Blog = ({ posts }) => {
   posts.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date));
   return <>
     <div className="relative bg-gray-50 overflow-hidden">
       <Head>
-        <title>Blog: Rizki Aprita</title>
+        <title>Blognya Rizki Aprita</title>
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <Header tagline={"Rizki Aprita"}/>
@@ -19,7 +17,7 @@ const Blog = ({ posts }) => {
       <main className="mx-auto max-w-7xl px-0 md:px-4">
         <div className="lg:text-center mb-4">
           <h1 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Blog
+            Catatan yang tak kumpulin, mungkin berguna.
           </h1>
         </div>
         <section className="mt-12 mx-auto grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -68,21 +66,8 @@ const Blog = ({ posts }) => {
 };
 
 export const getStaticProps = async () => {
-  const files = fs.readdirSync(path.join("posts"));
-
-  const posts = files.map((filename) => {
-    const markdownWithMeta = fs.readFileSync(
-      path.join("posts", filename),
-      "utf-8"
-    );
-    
-    const { data: frontMatter } = matter(markdownWithMeta);
-
-    return {
-      slug: filename.split(".")[0],
-      frontMatter,
-    };
-  });
+const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/posts`);
+const posts = res.data
   return {
     props: {
       posts,

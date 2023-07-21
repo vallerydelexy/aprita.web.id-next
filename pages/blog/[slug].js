@@ -8,6 +8,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
+import axios from "axios";
 
 const components = { SyntaxHighlighter };
 
@@ -137,7 +138,7 @@ const PostPage = ({
         <div className="relative px-4 sm:px-6 lg:px-8">
           <div className="text-lg mx-auto">
             <h1>
-              <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              <span className="max-w-screen-lg mx-auto mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 {title}
               </span>
             </h1>
@@ -153,11 +154,9 @@ const PostPage = ({
               </span>
             </div>
             <img
-              className="w-full rounded-lg"
+              className="max-w-screen-lg rounded-lg mx-auto"
               src={thumbnailUrl}
               alt={thumbnailAlt}
-              width={1310}
-              height={873}
             />
           </div>
           <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto break-words">
@@ -185,14 +184,13 @@ const PostPage = ({
 };
 
 const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("posts"));
-
-  const paths = files.map((filename) => ({
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/posts`);
+  const posts = res.data;
+  const paths = posts.map((post) => ({
     params: {
-      slug: filename.replace(".mdx", ""),
+      slug: post.slug,
     },
   }));
-
   return {
     paths,
     fallback: false,
@@ -201,8 +199,11 @@ const getStaticPaths = async () => {
 
 const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithMeta = fs.readFileSync(
-    path.join("posts", slug + ".mdx"),
-    "utf-8"
+    path.join(
+      process.env.NEXT_PUBLIC_CONTENT_FOLDER,
+      `${slug}${process.env.NEXT_PUBLIC_CONTENT_FILE_EXT}`
+    ),
+    process.env.NEXT_PUBLIC_CONTENT_ENCODING
   );
 
   const { data: frontMatter, content } = matter(markdownWithMeta);

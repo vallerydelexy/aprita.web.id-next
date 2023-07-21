@@ -17,7 +17,7 @@ const Skillset = () => (
           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             <img
               className="pt-4"
-              src="strapi/svg/Strapi.full.logo.dark.svg"
+              src="strapi/SVG/Strapi.full.logo.dark.svg"
               alt="strapi open source contributor"
             />
           </dd>
