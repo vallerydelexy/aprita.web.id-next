@@ -21,8 +21,7 @@ export default async function getAllPosts() {
 
     return posts;
   } catch (error) {
-    // Handle any errors that may occur during file reading or parsing
     console.error("An error occurred while fetching posts:", error);
-    return []; // Return an empty array or handle the error accordingly
+    throw error;
   }
 };
