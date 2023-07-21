@@ -1,29 +1,30 @@
 import Badge from "./Badge";
-
-const Skillset = () => (
-  <div className="mx-auto bg-white bg-opacity-25 backdrop-filter backdrop-blur-sm md:max-w-lg shadow overflow-hidden sm:rounded-lg">
+import useThemeStore from "@utils/store/theme.store";
+export default function Skillset () {
+  const { mode, setLightMode, setDarkMode } = useThemeStore();
+  return <div className="mx-auto bg-white dark:bg-gray-800 bg-opacity-25 dark:bg-opacity-75 backdrop-filter backdrop-blur-sm md:max-w-lg shadow overflow-hidden sm:rounded-lg">
     <div className="px-4 py-5 sm:px-6">
-      <h3 className="text-lg leading-6 font-medium text-gray-900">
+      <h3 className="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
         Keahlian & Software yang saya gunakan
       </h3>
-      <img className="pt-4" src="images/dns.svg" />
+      <img className="pt-4" src={mode==="light"?"images/dns.svg":"images/dns-outline.svg"} />
     </div>
     <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
       <dl className="sm:divide-y sm:divide-gray-200">
         <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">
+          <dt className="text-sm font-medium text-gray-500 dark:text-gray-100">
             Open Source Contributor to
           </dt>
           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             <img
-              className="pt-4"
-              src="strapi/SVG/Strapi.full.logo.dark.svg"
+              className="h-24 w-24"
+              src={mode==="light"?"strapi/SVG/Strapi.full.logo.dark.svg":"strapi/SVG/Strapi.full.logo.light.svg"}
               alt="strapi open source contributor"
             />
           </dd>
         </div>
         <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">Frontend</dt>
+          <dt className="text-sm font-medium text-gray-500 dark:text-gray-100">Frontend</dt>
           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             <Badge text={"React / Next JS"} />
             <Badge text={"Vue / Nuxt JS"} />
@@ -33,7 +34,7 @@ const Skillset = () => (
           </dd>
         </div>
         <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">Backend</dt>
+          <dt className="text-sm font-medium text-gray-500 dark:text-gray-100">Backend</dt>
           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             <Badge text={"Express JS"} />
             <Badge text={"Koa JS"} />
@@ -41,14 +42,14 @@ const Skillset = () => (
           </dd>
         </div>
         <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">Database</dt>
+          <dt className="text-sm font-medium text-gray-500 dark:text-gray-100">Database</dt>
           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
           <Badge text={"Postgree"} />
             <Badge text={"MySql"} />
           </dd>
         </div>
         <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">Cloud Service Provider</dt>
+          <dt className="text-sm font-medium text-gray-500 dark:text-gray-100">Cloud Service Provider</dt>
           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
           <Badge text={"AWS"} />
             <Badge text={"Alibaba Cloud"} />
@@ -58,7 +59,7 @@ const Skillset = () => (
           </dd>
         </div>
         <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">Visual & UI/UX Design</dt>
+          <dt className="text-sm font-medium text-gray-500 dark:text-gray-100">Visual & UI/UX Design</dt>
           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
           <Badge text={"Figma"} />
             <Badge text={"Photoshop"} />
@@ -68,7 +69,7 @@ const Skillset = () => (
           </dd>
         </div>
         <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">Marketing</dt>
+          <dt className="text-sm font-medium text-gray-500 dark:text-gray-100">Marketing</dt>
           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
             <Badge text={"SEO"} />
             <Badge text={"Local SEO"} />
@@ -76,7 +77,7 @@ const Skillset = () => (
           </dd>
         </div>
         <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-          <dt className="text-sm font-medium text-gray-500">
+          <dt className="text-sm font-medium text-gray-500 dark:text-gray-100">
             Operating Systems & Web Server
           </dt>
           <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -88,5 +89,4 @@ const Skillset = () => (
       </dl>
     </div>
   </div>
-);
-export default Skillset;
+}

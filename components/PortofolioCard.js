@@ -11,20 +11,20 @@ export default function PortofolioCard({
   stacks,
 }) {
   return (
-    <div className="pb-8">
+    <div className="my-5 mb-8 shadow-lg max-w-screen-sm">
       <div>
         <img
           src={image}
           alt={imageAlt}
-          className=" w-full object-cover object-center rounded"
+          className=" w-full object-cover object-center rounded-t-lg"
         />
       </div>
-      <div className="p-0 pt-4 md:p-4">
+      <div className="p-4 pt-4 bg-white bg-opacity-25 dark:bg-opacity-100 backdrop-filter backdrop-blur-sm rounded-b-lg">
         <div className="flex justify-between">
           <div>
             <div className="mb-2">
-              <h3 className="text-2xl font-semibold text-blue-800 hover:underline">
-                {title} <span className="text-gray-400">{`(${year})`}</span>
+              <h3 className="text-2xl font-semibold text-indigo-800 hover:underline">
+                {title} <span className="text-gray-400 font-light">{`(${year})`}</span>
               </h3>
               <span className="text-gray-400 text-xs" >{domain}</span>
             </div>

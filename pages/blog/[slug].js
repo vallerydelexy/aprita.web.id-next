@@ -25,13 +25,13 @@ const PostPage = ({
   mdxSource,
 }) => {
   return (
-    <div className="bg-white overflow-hidden  ">
+    <div className="bg-white dark:bg-gray-900 overflow-hidden  ">
       <Header tagline={"Blog"} />
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.svg" />
       </Head>
-      <div className="relative py-16 bg-white overflow-hidden">
+      <div className="relative py-16 overflow-hidden">
         <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
           <div
             className="relative h-full text-lg max-w-prose mx-auto"
@@ -136,20 +136,20 @@ const PostPage = ({
           </div>
         </div>
         <div className="relative px-4 sm:px-6 lg:px-8">
-          <div className="text-lg mx-auto">
+          <div className="text-lg text-gray-900 dark:text-gray-50 mx-auto">
             <h1>
-              <span className="max-w-screen-lg mx-auto mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              <span className="max-w-screen-lg mx-auto mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
                 {title}
               </span>
             </h1>
 
             <div className="text-center">
-              <span className="text-center text-base text-gray-500 tracking-wide">
+              <span className="text-center text-base text-gray-500 dark:text-gray-150 tracking-wide">
                 Written by {author}
               </span>
             </div>
             <div className="text-center">
-              <span className="text-center text-base text-gray-500 tracking-wide">
+              <span className="text-center text-base text-gray-500 dark:text-gray-150 tracking-wide">
                 {date}
               </span>
             </div>
@@ -159,7 +159,7 @@ const PostPage = ({
               alt={thumbnailAlt}
             />
           </div>
-          <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto break-words">
+          <div className="mt-6 prose prose-indigo dark:prose-invert prose-code:invert prose-code:text-gray-900 prose-lg prose-code:text-sm prose-code:p-2 prose-pre:font-bold mx-auto break-words">
             <MDXRemote
               id="article-body"
               {...mdxSource}
@@ -169,7 +169,7 @@ const PostPage = ({
               {tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="text-center text-base text-gray-500 tracking-wide"
+                  className="text-center text-base text-gray-500 dark:text-gray-150 tracking-wide"
                 >
                   #{tag}&nbsp;
                 </span>

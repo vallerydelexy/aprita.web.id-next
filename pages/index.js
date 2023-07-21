@@ -20,7 +20,7 @@ import CircleLottie from "@components/CircleLottie";
 export default function Home() {
   // const { show, data } = useModalStore((state) => state);
   return (
-    <div className="relative bg-gray-50 overflow-hidden">
+    <div className="relative bg-gray-50 dark:bg-gray-900 overflow-hidden">
       <Head>
         <title>Rizki Aprita</title>
         <link rel="icon" href="/favicon.svg" />
@@ -34,10 +34,10 @@ export default function Home() {
           </div>
 
           <h1 className="text-center text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block text-gray-900 xl:inline">Rizki Aprita</span>
+            <span className="block text-gray-900 dark:text-gray-50 xl:inline">Rizki Aprita</span>
           </h1>
-          <h2 className="text-center text-1xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block text-indigo-600 xl:inline">
+          <h2 className="text-center text-1xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
+            <span className="block text-indigo-600 dark:text-indigo-300 xl:inline">
               Visual Designer / Web Developer
             </span>
           </h2>
@@ -49,29 +49,29 @@ export default function Home() {
           />
           <GeometricLottie />
           <div id="skillset" className="pt-6 text-left">
-            <Skillset />
+            
           </div>
         </div>
       </main>
       
-      <div className="px-6 my-4 py-4" id="portfolio">
-        <h1 className="pb-4">
-          <span className="block text-lg text-center text-gray-900 font-semibold tracking-wide">
-            Websites & App Project
-          </span>
-        </h1>
+      <div className="px-4 md:px-6 my-4 py-4 flex flex-col lg:flex-row justify-between" id="portfolio">
+        <div className="flex-grow-0 order-last sm:order-none">
+        <Skillset />
+        </div>
+        <div className="flex-grow-1">
+
 
         <div className="">
-        <CircleLottie />
+        
           <Splide
             aria-label="Websites & UI/UX"
             options={{
               perPage: 1,
-              padding: "2rem",
+              padding: {right:"4rem"},
               gap: "1em",
               arrows: false,
             }}
-            className="max-w-screen-sm mx-auto outline outline-2 outline-indigo-600 py-4 rounded-lg bg-white shadow-lg"
+            className="max-w-screen-md mx-auto md:rounded-t-lg"
           >
             {webProjects.map((project, index) => {
               return (
@@ -81,6 +81,7 @@ export default function Home() {
               );
             })}
           </Splide>
+        </div>
         </div>
       </div>
 
