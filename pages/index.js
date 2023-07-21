@@ -1,6 +1,6 @@
 import Head from "next/head";
 /* This example requires Tailwind CSS v2.0+ */
-import { PaperClipIcon } from "@heroicons/react/solid";
+// import { PaperClipIcon } from "@heroicons/react/solid";
 import Skillset from "@components/Skillset";
 // import TestSwiper from "@components/swiper";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -11,18 +11,14 @@ import Header from "@components/Header";
 import Terminal from "@components/Terminal";
 import GeometricLottie from "@components/GeometricLottie";
 import {
-  LogoImages,
-  PrintImages,
-  WebImages,
   webProjects,
 } from "@utils/SliderData";
 import PortofolioCard from "@components/PortofolioCard";
-import useModalStore from "@utils/store/modal.store";
+// import useModalStore from "@utils/store/modal.store";
 import CircleLottie from "@components/CircleLottie";
 
 export default function Home() {
-  const { show, data } = useModalStore((state) => state);
-  console.log(show);
+  // const { show, data } = useModalStore((state) => state);
   return (
     <div className="relative bg-gray-50 overflow-hidden">
       <Head>
