@@ -183,14 +183,29 @@ const PostPage = ({
   );
 };
 
+// const getStaticPaths = async () => {
+//   const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/posts`);
+//   const posts = res.data;
+//   const paths = posts.map((post) => ({
+//     params: {
+//       slug: post.slug,
+//     },
+//   }));
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
 const getStaticPaths = async () => {
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/posts`);
-  const posts = res.data;
-  const paths = posts.map((post) => ({
+  const files = fs.readdirSync(path.join(process.env.NEXT_PUBLIC_CONTENT_FOLDER));
+
+  const paths = files.map((filename) => ({
     params: {
-      slug: post.slug,
+      slug: filename.replace(process.env.NEXT_PUBLIC_CONTENT_FILE_EXT, ""),
     },
   }));
+
   return {
     paths,
     fallback: false,

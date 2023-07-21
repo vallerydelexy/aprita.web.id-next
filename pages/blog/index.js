@@ -65,9 +65,33 @@ const Blog = ({ posts }) => {
   </>;
 };
 
+// export const getStaticProps = async () => {
+// const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/posts`);
+// const posts = res.data
+//   return {
+//     props: {
+//       posts,
+//     },
+//   };
+// };
+
 export const getStaticProps = async () => {
-const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/posts`);
-const posts = res.data
+  const files = fs.readdirSync(path.join(process.env.NEXT_PUBLIC_CONTENT_FOLDER));
+
+  const posts = files.map((filename) => {
+    const markdownWithMeta = fs.readFileSync(
+      path.join(process.env.NEXT_PUBLIC_CONTENT_FOLDER, filename),
+      process.env.NEXT_PUBLIC_CONTENT_ENCODING
+    );
+    
+    const { data: frontMatter } = matter(markdownWithMeta);
+
+    return {
+      id: frontMatter.id,
+      slug: filename.split(".")[0],
+      frontMatter,
+    };
+  });
   return {
     props: {
       posts,
