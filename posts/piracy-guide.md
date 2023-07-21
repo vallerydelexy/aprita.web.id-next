@@ -1,18 +1,14 @@
 ---
-id: null
-title: piracy-megathread
+title: Piracy Guides
 description: A community devoted to in-depth debate on topics concerning digital piracy, ethical problems, and legal advancements. Piracy is Ethical!
 date: Jul 21, 2023
 preview: ""
 draft: false
 tags:
-  - download
-  - install
-  - adobe
-categories:
-  - design
+  - piracy
+  - crack
 author: Rizki Aprita
-slug: piracy-megathread
+slug: piracy-guide
 thumbnailUrl: /images/post/piracy.png
 thumbnailAlt: null
 ---
