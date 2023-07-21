@@ -2,7 +2,9 @@ import Head from "next/head";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Link from "next/link";
-import axios from "axios";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 const Blog = ({ posts }) => {
   posts.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date));
