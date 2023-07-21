@@ -54,7 +54,7 @@ export default function Home() {
         </div>
       </main>
       
-      <div className="px-6 my-4 py-4">
+      <div className="px-6 my-4 py-4" id="portfolio">
         <h1 className="pb-4">
           <span className="block text-lg text-center text-gray-900 font-semibold tracking-wide">
             Websites & App Project
