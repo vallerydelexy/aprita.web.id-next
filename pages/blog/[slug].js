@@ -154,7 +154,7 @@ const PostPage = ({
               </span>
             </div>
             <img
-              className="max-w-screen-lg rounded-lg mx-auto"
+              className="rounded-lg mx-auto"
               src={thumbnailUrl}
               alt={thumbnailAlt}
             />
