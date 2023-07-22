@@ -16,6 +16,7 @@ import {
 import PortofolioCard from "@components/PortofolioCard";
 // import useModalStore from "@utils/store/modal.store";
 import CircleLottie from "@components/CircleLottie";
+import Whatsapp from "@components/Whatsapp";
 
 export default function Home() {
   // const { show, data } = useModalStore((state) => state);
@@ -42,11 +43,12 @@ export default function Home() {
             </span>
           </h2>
           {/* <Stat /> */}
-          <Terminal
+          {/* <Terminal
             text={
               "saya Rizki, Saya mendesain hal-hal sederhana yang mudah dipahami dan digunakan"
             }
-          />
+          /> */}
+          <Whatsapp />
           <GeometricLottie />
           <div id="skillset" className="pt-6 text-left">
             
