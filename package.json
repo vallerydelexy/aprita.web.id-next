@@ -1,7 +1,10 @@
 {
   "name": "aprita.web.id",
-  "version": "1.0",
+  "version": "1.0.0",
   "private": true,
+  "prisma": {
+    "schema": "pages/api/model/schema.prisma"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,6 +17,7 @@
     "@heroicons/react": "^1.0.5",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^12.0.4",
+    "@prisma/client": "^5.0.0",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
     "@tailwindcss/line-clamp": "^0.3.1",
@@ -22,6 +26,7 @@
     "axios": "^1.4.0",
     "firebase": "^9.6.10",
     "gray-matter": "^4.0.3",
+    "markdown-it": "^13.0.1",
     "marked": "^2.1.3",
     "next": "^13.4.10",
     "next-mdx-remote": "^3.0.4",
@@ -41,6 +46,7 @@
     "eslint": "7.31.0",
     "eslint-config-next": "13.4.10",
     "postcss": "^8.4.12",
+    "prisma": "^5.0.0",
     "tailwindcss": "^3.0.23"
   }
 }

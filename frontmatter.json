@@ -54,5 +54,6 @@
       ]
     }
   ],
-  "frontMatter.preview.host": "http://localhost:3000"
+  "frontMatter.preview.host": "http://localhost:3000",
+  "frontMatter.content.fmHighlight": false
 }

@@ -9,6 +9,8 @@ import path from "path";
 import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import axios from "axios";
+import NoSSR from "@components/NoSSR";
+import RelatedPost from "@components/RelatedPost";
 
 const components = { SyntaxHighlighter };
 
@@ -178,6 +180,9 @@ const PostPage = ({
           </div>
         </div>
       </div>
+      <NoSSR>
+        <RelatedPost />
+      </NoSSR>
       <Footer />
     </div>
   );

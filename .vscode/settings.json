@@ -1,5 +1,6 @@
 {
     "frontMatter.content.fmHighlight": false,
     "[markdown]": {
-    }
+    },
+    "prisma.fileWatcher": true
 }
