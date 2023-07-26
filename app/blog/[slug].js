@@ -1,12 +1,12 @@
 import Head from "next/head";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
-import PostPattern from "@components/PostPattern";
+// import PostPattern from "@components/PostPattern";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+// import fs from "fs";
+// import path from "path";
+// import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import axios from "axios";
 import NoSSR from "@components/NoSSR";
@@ -14,18 +14,27 @@ import RelatedPost from "@components/RelatedPost";
 
 const components = { SyntaxHighlighter };
 
-const PostPage = ({
-  frontMatter: {
-    title,
-    date,
-    thumbnailUrl,
-    thumbnailAlt,
-    categories,
-    tags,
-    author,
-  },
+export default function PostPage({
+  title,
+  date,
+  thumbnailUrl,
+  thumbnailAlt,
+  categories,
+  tags,
+  author,
+
   mdxSource,
-}) => {
+}) {
+  // console.log(
+  //   title,
+  //   date,
+  //   thumbnailUrl,
+  //   thumbnailAlt,
+  //   categories,
+  //   tags,
+  //   author,
+  //   mdxSource
+  // );
   return (
     <div className="bg-white dark:bg-gray-900 overflow-hidden  ">
       <Header tagline={"Blog"} />
@@ -162,12 +171,13 @@ const PostPage = ({
             />
           </div>
           <div className="mt-6 prose prose-indigo dark:prose-invert prose-code:invert prose-code:text-gray-900 prose-lg prose-code:text-sm prose-code:p-2 prose-pre:font-bold mx-auto break-words">
-            <MDXRemote
+            {/* <MDXRemote
               id="article-body"
               {...mdxSource}
               components={components}
-            />
-            <div className="text-center">
+            /> */}
+            {/* {mdxSource} */}
+            {/* <div className="text-center">
               {tags.map((tag, index) => (
                 <span
                   key={index}
@@ -176,7 +186,7 @@ const PostPage = ({
                   #{tag}&nbsp;
                 </span>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -186,57 +196,68 @@ const PostPage = ({
       <Footer />
     </div>
   );
-};
+}
+
+export async function getStaticPaths() {
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/post`);
+  const posts = res.data.data;
+  const paths = posts.map((post) => ({
+    params: {
+      slug: post.slug,
+    },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+}
 
 // const getStaticPaths = async () => {
-//   const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/posts`);
-//   const posts = res.data;
-//   const paths = posts.map((post) => ({
+//   const files = fs.readdirSync(path.join(process.env.NEXT_PUBLIC_CONTENT_FOLDER));
+
+//   const paths = files.map((filename) => ({
 //     params: {
-//       slug: post.slug,
+//       slug: filename.replace(process.env.NEXT_PUBLIC_CONTENT_FILE_EXT, ""),
 //     },
 //   }));
+
 //   return {
 //     paths,
 //     fallback: false,
 //   };
 // };
 
-const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join(process.env.NEXT_PUBLIC_CONTENT_FOLDER));
-
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.replace(process.env.NEXT_PUBLIC_CONTENT_FILE_EXT, ""),
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-const getStaticProps = async ({ params: { slug } }) => {
-  const markdownWithMeta = fs.readFileSync(
-    path.join(
-      process.env.NEXT_PUBLIC_CONTENT_FOLDER,
-      `${slug}${process.env.NEXT_PUBLIC_CONTENT_FILE_EXT}`
-    ),
-    process.env.NEXT_PUBLIC_CONTENT_ENCODING
+export async function getStaticProps({ params: { slug } }) {
+  const res = await axios.get(
+    `${process.env.NEXT_PUBLIC_DOMAIN}/api/post?slug=${slug}`
   );
-
-  const { data: frontMatter, content } = matter(markdownWithMeta);
+  const content = res.data
+  console.log(content.data.id)
   const mdxSource = await serialize(content);
-
   return {
     props: {
-      frontMatter,
-      slug,
-      mdxSource,
+      mdxSource
     },
   };
-};
+}
 
-export { getStaticProps, getStaticPaths };
-export default PostPage;
+// const oldGetStaticProps = async ({ params: { slug } }) => {
+//   const markdownWithMeta = fs.readFileSync(
+//     path.join(
+//       process.env.NEXT_PUBLIC_CONTENT_FOLDER,
+//       `${slug}${process.env.NEXT_PUBLIC_CONTENT_FILE_EXT}`
+//     ),
+//     process.env.NEXT_PUBLIC_CONTENT_ENCODING
+//   );
+
+//   const { data: frontMatter, content } = matter(markdownWithMeta);
+//   const mdxSource = await serialize(content);
+
+//   return {
+//     props: {
+//       frontMatter,
+//       slug,
+//       mdxSource,
+//     },
+//   };
+// };

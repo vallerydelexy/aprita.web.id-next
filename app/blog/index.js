@@ -2,12 +2,14 @@ import Head from "next/head";
 import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import axios from "axios"
+// import fs from "fs";
+// import path from "path";
+// import matter from "gray-matter";
 
 const Blog = ({ posts }) => {
-  posts.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date));
+  console.log(posts)
+  // posts?.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date));
   return <>
     <div className="relative bg-gray-50 dark:bg-gray-900 overflow-hidden">
       <Head>
@@ -32,7 +34,7 @@ const Blog = ({ posts }) => {
               <Link href={"/blog/" + post.slug} passHref key={index} legacyBehavior>
                 <img
                   className="h-48 w-full object-cover"
-                  src={post.frontMatter.thumbnailUrl}
+                  src={post.thumbnailUrl}
                   alt=""
                   role="button"
                 />
@@ -41,21 +43,21 @@ const Blog = ({ posts }) => {
               <div className="flex-1 bg-white dark:bg-gray-800 p-6 flex flex-col justify-between">
                 <div className="flex-1">
                   <p className="text-sm font-medium text-indigo-600">
-                    {post.frontMatter.category}
+                    {post.category}
                   </p>
                   <Link href={"/blog/" + post.slug} passHref key={index} legacyBehavior>
                     <div role="button">
                       <p className="text-xl font-semibold text-gray-900 dark:text-gray-50 hover:underline">
-                        {post.frontMatter.title}
+                        {post.title}
                       </p>
                       <p className="mt-3 text-base text-gray-500 dark:text-gray-150">
-                        {post.frontMatter.description}
+                        {post.description}
                       </p>
                     </div>
                   </Link>
                 </div>
                 <div className="mt-6 flex items-center text-sm text-gray-500 dark:text-gray-150">
-                  <time>{post.frontMatter.date}</time>
+                  <time>{post.date}</time>
                 </div>
               </div>
             </div>
@@ -67,37 +69,37 @@ const Blog = ({ posts }) => {
   </>;
 };
 
-// export const getStaticProps = async () => {
-// const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/posts`);
-// const posts = res.data
-//   return {
-//     props: {
-//       posts,
-//     },
-//   };
-// };
-
 export const getStaticProps = async () => {
-  const files = fs.readdirSync(path.join(process.env.NEXT_PUBLIC_CONTENT_FOLDER));
-
-  const posts = files.map((filename) => {
-    const markdownWithMeta = fs.readFileSync(
-      path.join(process.env.NEXT_PUBLIC_CONTENT_FOLDER, filename),
-      process.env.NEXT_PUBLIC_CONTENT_ENCODING
-    );
-    
-    const { data: frontMatter } = matter(markdownWithMeta);
-
-    return {
-      slug: filename.split(".")[0],
-      frontMatter,
-    };
-  });
+const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/post`);
+const posts = res.data.data
   return {
     props: {
       posts,
     },
   };
 };
+
+// export const getStaticProps = async () => {
+//   const files = fs.readdirSync(path.join(process.env.NEXT_PUBLIC_CONTENT_FOLDER));
+
+//   const posts = files.map((filename) => {
+//     const markdownWithMeta = fs.readFileSync(
+//       path.join(process.env.NEXT_PUBLIC_CONTENT_FOLDER, filename),
+//       process.env.NEXT_PUBLIC_CONTENT_ENCODING
+//     );
+    
+//     const { data: frontMatter } = matter(markdownWithMeta);
+
+//     return {
+//       slug: filename.split(".")[0],
+//       frontMatter,
+//     };
+//   });
+//   return {
+//     props: {
+//       posts,
+//     },
+//   };
+// };
 
 export default Blog;
