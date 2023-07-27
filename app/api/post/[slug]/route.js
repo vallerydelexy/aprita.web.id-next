@@ -1,9 +1,8 @@
 import { NextResponse, NextRequest } from "next/server"
 import {
-	createPost,
-	getPost,
 	getPostSlug,
-    updatePostSlug
+    updatePostSlug,
+	deletePost
 } from "@api/controller/post.controller"
 
 export async function GET(request) {
@@ -28,6 +27,18 @@ export async function POST(request) {
 	} catch (error) {
 		return NextResponse.json(
 			{ success: false, error: "Failed to create the post" },
+			{ status: 500 },
+		)
+	}
+}
+
+export async function DELETE(request) {
+	try {
+		const data = await deletePost(request)
+		return NextResponse.json(data, {status: 200})
+	} catch (error) {
+		return NextResponse.json(
+			{ success: false, error: "Failed to delete the post" },
 			{ status: 500 },
 		)
 	}

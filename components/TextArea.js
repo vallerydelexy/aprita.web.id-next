@@ -5,10 +5,12 @@ import { MdEditor, MdCatalog, MdPreview } from "md-editor-rt"
 import { classNames, slugify } from "@utils/helper"
 import axios from "axios"
 import "md-editor-rt/lib/style.css"
-import { SaveIcon } from "@heroicons/react/outline"
+import { RefreshIcon, SaveIcon } from "@heroicons/react/outline"
 import { CldImage } from "next-cloudinary"
+import { useRouter } from "next/navigation"
 
 export default function TextArea({ postData }) {
+	const router = useRouter()
 	let [id, setId] = useState(postData?.id || undefined)
 	const [title, setTitle] = useState(postData?.title || undefined)
 	const [text, setText] = useState(postData?.content || undefined)
@@ -31,13 +33,13 @@ export default function TextArea({ postData }) {
 		const postUrl = id
 			? `${process.env.NEXT_PUBLIC_DOMAIN}/api/post/${postData.slug}`
 			: `${process.env.NEXT_PUBLIC_DOMAIN}/api/post`
-
-		try {
-			if (title && value && tags && coverImage) {
+		const slug = slugify(title)
+		if (title && value && tags && coverImage) {
+			try {
 				const res = await axios.post(postUrl, {
 					author: "Rizki Aprita",
 					title: title,
-					slug: slugify(title),
+					slug: slug,
 					description: value?.slice(0, 155),
 					thumbnailUrl: coverImage,
 					thumbnailAlt: "",
@@ -45,12 +47,22 @@ export default function TextArea({ postData }) {
 					tags: tags?.trim().split(", "),
 					content: value,
 				})
-				console.log(res)
+				setId(res?.data?.data?.data?.id)
 				setLoading(false)
+				router.push(`${process.env.NEXT_PUBLIC_DOMAIN}/posts/${slug}`)
+			} catch (error) {
+				setLoading(false)
+				console.error("Error occurred:", error)
 			}
-		} catch (error) {
+		} else {
 			setLoading(false)
-			console.error("Error occurred:", error)
+			console.log(
+				title && value && tags && coverImage,
+				title,
+				value,
+				tags,
+				coverImage,
+			)
 		}
 	}
 
@@ -126,7 +138,6 @@ export default function TextArea({ postData }) {
 	function triggerSave(e) {
 		// e.preventDefault()
 		editorRef.current?.triggerSave()
-		console.log("save triggerred 1")
 	}
 
 	return (
@@ -156,7 +167,7 @@ export default function TextArea({ postData }) {
 							<CldImage
 								width="600"
 								height="600"
-								className="mx-auto rounded-md group-hover:outline group-hover:outline-1 group-hover:outline-indigo-800"
+								className="mx-auto rounded-md group-hover:outline group-hover:outline-1 group-hover:outline-indigo-800 max-h-[600] max-w-[600]"
 								src={coverImage}
 							/>
 						)}
@@ -205,9 +216,15 @@ export default function TextArea({ postData }) {
 									disabled={loading}
 									className="ml-auto disabled:bg-gray-800 flex items-center space-x-5 text-gray-100 bg-indigo-800 hover:bg-indigo-900 px-3 py-1.5 border border-transparent text-sm font-medium rounded-md">
 									<div className="flex items-center flex-row gap-2">
-										<span className="">Save</span>
+										<span className="">{!loading ? "Save" : "Saving"}</span>
 										<div className="-m-2.5 w-10 h-10 inline-flex items-center justify-center ">
-											<SaveIcon className="h-5 w-5" aria-hidden="true" />
+											{loading && (
+												<RefreshIcon className=" animate-spin h5 w-5" />
+											)}
+
+											{!loading && (
+												<SaveIcon className="h-5 w-5" aria-hidden="true" />
+											)}
 										</div>
 									</div>
 								</button>

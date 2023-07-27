@@ -1,8 +1,5 @@
 import { NextResponse, NextRequest } from "next/server"
-import {
-	createPost,
-	getPost,
-} from "@api/controller/post.controller"
+import { createPost, getPost } from "@api/controller/post.controller"
 
 export async function GET(request) {
 	try {

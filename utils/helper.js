@@ -15,3 +15,8 @@ export function classNames(...classes) {
       .replace(/-+$/, "");
     }
   }
+
+  export function getSlugFromReqeustUrl (request){
+    return /[^/]+$/.exec(request.nextUrl.pathname)[0]
+  }
+  

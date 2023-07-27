@@ -1,6 +1,7 @@
 import prisma from "@utils/lib/prisma"
 import MarkdownIt from "markdown-it"
 import { NextResponse } from "next/server"
+import { getSlugFromReqeustUrl } from "@utils/helper"
 export const createPost = async (request) => {
 	const req = await request.json()
 	const {
@@ -150,7 +151,7 @@ export const updatePost = async (req, res) => {
 
 export const updatePostSlug = async (request) => {
 	const slug = /[^/]+$/.exec(request.nextUrl.pathname)[0]
-	const body = await request.json();
+	const body = await request.json()
 	const {
 		title,
 		description,
@@ -162,7 +163,7 @@ export const updatePostSlug = async (request) => {
 		tags,
 		content,
 	} = body
-	
+
 	try {
 		const existingPost = await prisma.post.findUnique({
 			where: { slug }, // Use the slug to find the post
@@ -221,7 +222,6 @@ export const updatePostSlug = async (request) => {
 		console.error("Error updating post:", error)
 		return { error: "An error occurred while updating post" }
 	}
-	
 }
 
 export const getPostId = async (req, res) => {
@@ -307,3 +307,25 @@ export const getPostSlug = async ({ slug }) => {
 		}
 	}
 }
+
+export const deletePost = async (request) => {
+	const slug = getSlugFromReqeustUrl(request);
+  
+	try {
+	  const deletedPost = await prisma.post.delete({
+		where: { slug },
+		include: { tags: true },
+	  });
+  
+	  return {
+		message: `Post ${deletedPost.slug} #${deletedPost.id} has been deleted`,
+	  };
+	} catch (error) {
+	  // Handle the error
+	  console.error("Error deleting post:", error.message);
+	  return {
+		error: "An error occurred while deleting the post.",
+	  };
+	}
+  };
+  
