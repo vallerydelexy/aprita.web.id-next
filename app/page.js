@@ -12,11 +12,11 @@ import PortofolioCard from "@components/PortofolioCard";
 import Whatsapp from "@components/Whatsapp";
 import "@splidejs/react-splide/css";
 
-export const metadata = {
-  title: 'Rizki Aprita',
-  description: 'Rizki Aprita is a web developer',
+// export const metadata = {
+//   title: 'Rizki Aprita',
+//   description: 'Rizki Aprita is a web developer',
 
-}
+// }
 
 export default function Home() {
   // const { show, data } = useModalStore((state) => state);
