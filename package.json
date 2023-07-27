@@ -11,6 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
