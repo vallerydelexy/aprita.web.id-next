@@ -2,7 +2,7 @@ import TextArea from '@components/TextArea'
 import axios from "axios"
 
 async function getPost(slug){
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_DOMAIN}/api/post/${slug}`)
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/post/${slug}`)
     return res
 }
 
