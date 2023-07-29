@@ -7,7 +7,7 @@ export default function RelatedPost() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/related-post`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API}/related-post`);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching related posts:", error);

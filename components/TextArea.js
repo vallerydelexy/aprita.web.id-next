@@ -31,8 +31,8 @@ export default function TextArea({ postData }) {
 	async function onSave(value, html) {
 		setLoading(true)
 		const postUrl = id
-			? `${process.env.NEXT_PUBLIC_API}/api/post/${postData.slug}`
-			: `${process.env.NEXT_PUBLIC_API}/api/post`
+			? `${process.env.NEXT_PUBLIC_API}/post/${postData.slug}`
+			: `${process.env.NEXT_PUBLIC_API}/post`
 		const slug = slugify(title)
 		if (title && value && tags && coverImage) {
 			try {

@@ -5,7 +5,7 @@ import { CldImage } from "next-cloudinary"
 async function getPost(slug) {
 	try {
 		const res = await axios.get(
-			`${process.env.NEXT_PUBLIC_API}/api/post/${slug}`,
+			`${process.env.NEXT_PUBLIC_API}/post/${slug}`,
 		)
 		return res.data.data.data
 	} catch (error) {

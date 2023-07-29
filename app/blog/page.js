@@ -7,7 +7,7 @@ import axios from "axios"
 
 async function getPosts() {
 	try {
-		const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/post`)
+		const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/post`)
 		return res.data.data.data
 	} catch (error) {
 		console.error("Error fetching posts:", error.message)

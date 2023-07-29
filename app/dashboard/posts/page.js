@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/outline"
 async function getPosts() {
 	try {
-		const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/post`)
+		const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/post`)
 		return res.data.data.data
 	} catch (error) {
 		console.error("Error fetching posts:", error.message)
@@ -21,7 +21,7 @@ export default async function PostsPage() {
 	const deletePost = async (slug) => {
 		try {
 			const res = await axios.delete(
-				`${process.env.NEXT_PUBLIC_API}/api/post/${slug}`,
+				`${process.env.NEXT_PUBLIC_API}/post/${slug}`,
 			)
 			console.log(res.data)
 		} catch (error) {
