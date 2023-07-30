@@ -8,9 +8,16 @@ import "md-editor-rt/lib/style.css"
 import { RefreshIcon, SaveIcon } from "@heroicons/react/outline"
 import { CldImage } from "next-cloudinary"
 import { useRouter } from "next/navigation"
+import { getCookie  } from "cookies-next";
 
 export default function TextArea({ postData }) {
 	const router = useRouter()
+	const jwt = getCookie("jwt")
+	const authorizationHeader = {
+		headers: {
+			"authorization": jwt,
+		},
+	}
 	let [id, setId] = useState(postData?.id || undefined)
 	const [title, setTitle] = useState(postData?.title || undefined)
 	const [text, setText] = useState(postData?.content || undefined)
@@ -47,7 +54,7 @@ export default function TextArea({ postData }) {
 					draft: false,
 					tags: tags?.trim().split(", "),
 					content: value,
-				})
+				}, authorizationHeader)
 				setId(res?.data?.id)
 				setLoading(false)
 				router.push(`${process.env.NEXT_PUBLIC_DOMAIN}/posts/${slug}`)
