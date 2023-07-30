@@ -5,11 +5,21 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { classNames } from "@utils/helper"
 import useDashboardMenuStore from "@utils/store/dashboardMenu.store"
 import Link from "next/link"
+import { getCookie  } from "cookies-next";
+import { useRouter } from "next/navigation"
 
 export default function Layout({ children }) {
+	const jwt = getCookie("jwt")
+	const router = useRouter()
+	useEffect(()=>{
+		if(!jwt){
+			router.push(`${process.env.NEXT_PUBLIC_DOMAIN}/login`)
+		}
+	},[])
 	const [sidebarOpen, setSidebarOpen] = useState(false)
 	const navigation = useDashboardMenuStore().navigation
 	const setCurrent = useDashboardMenuStore((state) => state.setCurrent)
+
 	useEffect(() => {
 		useDashboardMenuStore.getState().setCurrentByRoute();
 	  }, []);

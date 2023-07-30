@@ -26,6 +26,7 @@ export default function TextArea({ postData }) {
 			.toString()
 			.replaceAll(",", ", ") || undefined,
 	)
+
 	const [loading, setLoading] = useState(false)
 
 	async function onSave(value, html) {
@@ -47,9 +48,9 @@ export default function TextArea({ postData }) {
 					tags: tags?.trim().split(", "),
 					content: value,
 				})
-				setId(res?.data?.data?.data?.id)
+				setId(res?.data?.id)
 				setLoading(false)
-				router.push(`${process.env.NEXT_PUBLIC_API}/posts/${slug}`)
+				router.push(`${process.env.NEXT_PUBLIC_DOMAIN}/posts/${slug}`)
 			} catch (error) {
 				setLoading(false)
 				console.error("Error occurred:", error)

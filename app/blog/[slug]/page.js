@@ -7,7 +7,7 @@ async function getPost(slug) {
 		const res = await axios.get(
 			`${process.env.NEXT_PUBLIC_API}/post/${slug}`,
 		)
-		return res.data.data.data
+		return res.data
 	} catch (error) {
 		console.error("Error fetching posts:", error.message)
 		throw new Error("Error fetching posts")

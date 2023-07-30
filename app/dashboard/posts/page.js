@@ -9,7 +9,7 @@ import {
 async function getPosts() {
 	try {
 		const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/post`)
-		return res.data.data.data
+		return res.data
 	} catch (error) {
 		console.error("Error fetching posts:", error.message)
 		throw new Error("Error fetching posts")
@@ -49,21 +49,21 @@ export default async function PostsPage() {
 											{post.title}#{post.id}
 										</h3>
 										<Link
-											href={`${process.env.NEXT_PUBLIC_API}/blog/${post.slug}`}
+											href={`${process.env.NEXT_PUBLIC_DOMAIN}/blog/${post.slug}`}
 											className="flex text-sm text-green-500">
 											<GlobeAltIcon className="h-5 w-5 text-green-500" />
-											{` ${process.env.NEXT_PUBLIC_API}/blog/${post.slug}`}
+											{` ${process.env.NEXT_PUBLIC_DOMAIN}/blog/${post.slug}`}
 										</Link>
 									</div>
 									<div className="flex flex-col text-right justify-between">
 										<div className="flex flex-row gap-4">
 											<Link
-												href={`${process.env.NEXT_PUBLIC_API}/blog/${post.slug}`}
+												href={`${process.env.NEXT_PUBLIC_DOMAIN}/blog/${post.slug}`}
 												className="hidden gap-1 p-2 bg-gray-300 rounded-lg group-hover:flex text-sm">
 												<GlobeAltIcon className="h-5 w-5" /> View
 											</Link>
 											<Link
-												href={`${process.env.NEXT_PUBLIC_API}/dashboard/posts/${post.slug}`}
+												href={`${process.env.NEXT_PUBLIC_DOMAIN}/dashboard/posts/${post.slug}`}
 												className="hidden gap-1 p-2 bg-gray-300 rounded-lg group-hover:flex text-sm">
 												<PencilAltIcon className="h-5 w-5" /> Edit
 											</Link>

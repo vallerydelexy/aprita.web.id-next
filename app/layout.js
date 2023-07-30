@@ -56,7 +56,7 @@ export default function Application({ children }) {
         </Script>
       </Head> */}
 			<body className="bg-gray-100 dark:bg-gray-900">
-				{!pathname.startsWith("/dashboard") && <Header />}
+				{!pathname.startsWith("/dashboard")  && <Header />}
 
 				{children}
 				{!pathname.startsWith("/dashboard") && <Footer />}

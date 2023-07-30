@@ -1,14 +1,11 @@
 "use client"
-import Head from "next/head"
-import Footer from "@components/Footer"
-import Header from "@components/Header"
 import Link from "next/link"
 import axios from "axios"
 
 async function getPosts() {
 	try {
 		const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/post`)
-		return res.data.data.data
+		return res.data
 	} catch (error) {
 		console.error("Error fetching posts:", error.message)
 		throw new Error("Error fetching posts")

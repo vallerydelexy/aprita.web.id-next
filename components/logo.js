@@ -4,7 +4,7 @@ export default function Logo({className}) {
   return React.createElement('svg', {
     className: className,
     xmlns: 'http://www.w3.org/2000/svg',
-    'xml:space': 'preserve',
+    'xmlSpace': 'preserve',
     version: '1.1',
     style: {
       shapeRendering: 'geometricPrecision',

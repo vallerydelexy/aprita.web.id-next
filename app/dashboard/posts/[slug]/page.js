@@ -9,7 +9,7 @@ async function getPost(slug){
 export default async function EditPostPage({params}){
     const {slug} = params
     const res = await getPost(slug)
-    const postData = res.data.data.data
+    const postData = res.data
 
     return <TextArea postData={postData} />
 }
