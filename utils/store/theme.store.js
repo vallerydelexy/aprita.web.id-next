@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const useThemeStore = create((set) => ({
-  mode: "light",
+  mode: "dark",
   setLightMode: () =>
     set((state) => {
       localStorage.theme = "light";
