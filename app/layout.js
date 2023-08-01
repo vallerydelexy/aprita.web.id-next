@@ -1,11 +1,7 @@
 "use client"
-// import "../styles/globals.css";
 import "@styles/globals.css"
-import Script from "next/script"
 import { useEffect } from "react"
 import useThemeStore from "@utils/store/theme.store"
-import Head from "next/head"
-import { Metadata } from "next"
 import Footer from "@components/Footer"
 import Header from "@components/Header"
 import { usePathname } from "next/navigation"
@@ -28,7 +24,7 @@ export default function Application({ children }) {
 				setLightMode() // Assuming this function sets the light mode in your Zustand store
 			}
 		}
-	}, [])
+	}, [setDarkMode, setLightMode])
 
 	useEffect(() => {
 		if (mode === "dark") {
