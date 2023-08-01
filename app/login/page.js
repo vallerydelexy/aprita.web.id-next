@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation"
 const API_ENDPOINT = `${process.env.NEXT_PUBLIC_API}/auth/login`;
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN;
 
-export default function login() {
+export default function Login() {
 	const [email, setEmail] = useState()
 	const [password, setPassword] = useState()
 	const router = useRouter()
