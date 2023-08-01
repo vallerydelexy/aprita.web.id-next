@@ -1,4 +1,4 @@
-import Badge from "./Badge";
+import Badge from "@components/Badge";
 export default function PortofolioCard({
   logo,
   logoAlt,
