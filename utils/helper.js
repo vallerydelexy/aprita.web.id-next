@@ -19,4 +19,8 @@ export function classNames(...classes) {
   export function getSlugFromReqeustUrl (request){
     return /[^/]+$/.exec(request.nextUrl.pathname)[0]
   }
+
+  export function tanggal (date){
+    return new Date(date).toLocaleDateString("id-ID", {year: 'numeric', month: 'long', day: 'numeric'})
+  }
   
