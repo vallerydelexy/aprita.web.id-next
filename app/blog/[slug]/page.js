@@ -1,18 +1,20 @@
-"use client"
-import axios from "axios"
-import { CldImage } from "next-cloudinary"
+import { tanggal } from "@utils/helper";
+import Image from "next/image";
 
 async function getPost(slug) {
 	try {
-		const res = await axios.get(
-			`${process.env.NEXT_PUBLIC_API}/post/${slug}`,
-		)
-		return res.data
+		const res = await fetch(`${process.env.NEXT_PUBLIC_API}/post/${slug}`);
+		if (!res.ok) {
+			throw new Error("Error fetching posts");
+		}
+		const data = await res.json();
+		return data;
 	} catch (error) {
-		console.error("Error fetching posts:", error.message)
-		throw new Error("Error fetching posts")
+		console.error("Error fetching posts:", error.message);
+		throw new Error("Error fetching posts");
 	}
 }
+
 
 export default async function PostPage({ params }) {
 	const { slug } = params
@@ -45,13 +47,14 @@ export default async function PostPage({ params }) {
 						</div>
 						<div className="text-center">
 							<span className="text-center text-base text-gray-500 dark:text-gray-150 tracking-wide">
-								{date}
+								{tanggal(date)}
 							</span>
 						</div>
-						<CldImage
-							width="600"
-							height="600"
-							className="mx-auto rounded-lg group-hover:outline group-hover:outline-1 group-hover:outline-indigo-800 max-h-[600] max-w-[600]"
+						
+						<Image
+							width="350"
+							height="350"
+							className="mx-auto rounded-lg group-hover:outline group-hover:outline-1 group-hover:outline-indigo-800 max-h-[350] max-w-[350]"
 							src={thumbnailUrl}
 							alt={thumbnailAlt}
 						/>
