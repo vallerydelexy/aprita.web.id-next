@@ -1,4 +1,5 @@
-import Badge from "./Badge";
+import Badge from "@components/Badge"
+
 import useThemeStore from "@utils/store/theme.store";
 export default function Skillset () {
   const { mode, setLightMode, setDarkMode } = useThemeStore();
