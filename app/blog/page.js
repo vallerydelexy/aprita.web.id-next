@@ -1,16 +1,20 @@
-export const revalidate = 3600;
+import { tanggal } from "@utils/helper"
+import Image from "next/image"
 import Link from "next/link"
-import axios from "axios"
 
 async function getPosts() {
 	try {
-		const res = await axios.get(`${process.env.NEXT_PUBLIC_API}/post`)
-		return res.data
+		const res = await fetch(`${process.env.NEXT_PUBLIC_API}/post`, { next: { revalidate: 21600 } })
+		if (!res.ok) {
+			throw new Error("Error fetching posts")
+		}
+		return await res.json()
 	} catch (error) {
 		console.error("Error fetching posts:", error.message)
 		throw new Error("Error fetching posts")
 	}
 }
+
 
 export default async function Blog() {
 	const posts = await getPosts()
@@ -34,9 +38,11 @@ export default async function Blog() {
 										passHref
 										key={index}
 										legacyBehavior>
-										<img
+										<Image
 											className="h-48 w-full object-cover"
 											src={post.thumbnailUrl}
+											width={500}
+											height={500}
 											alt=""
 											role="button"
 										/>
@@ -64,11 +70,7 @@ export default async function Blog() {
 									</div>
 									<div className="mt-6 flex items-center text-sm text-gray-500 dark:text-gray-150">
 										<time>
-											{new Date(post.date).toLocaleDateString("id-ID", {
-												year: "numeric",
-												month: "long",
-												day: "numeric",
-											})}
+											{tanggal(post.date)}
 										</time>
 									</div>
 								</div>
